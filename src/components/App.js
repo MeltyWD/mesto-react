@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './components/Header.js'
-import Main from './components/Main.js'
-import Footer from './components/Footer.js'
-import PopupWithForm from './components/PopupWithForm.js'
-import ImagePopup from './components/ImagePopup.js'
+import Header from './Header.js'
+import Main from './Main.js'
+import Footer from './Footer.js'
+import PopupWithForm from './PopupWithForm.js'
+import ImagePopup from './ImagePopup.js'
 
-import headerImage from './images/header/logo.svg'
-import profileImage from './images/profile/image.jpg'
+import headerImage from '../images/header/logo.svg'
+import profileImage from '../images/profile/image.jpg'
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpenClose] = React.useState(false);
