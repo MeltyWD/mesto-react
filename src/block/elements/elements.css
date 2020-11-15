@@ -1,0 +1,11 @@
+@import url(./_list/elements_list.css);
+
+
+.elements {
+  padding: 47px 15.625% 66px;
+}
+@media all and (max-width: 930px) {
+  .elements {
+    padding: 36px 5.9375% 48px;
+  }
+}
