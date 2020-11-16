@@ -16,11 +16,11 @@ function Card(props) {
       <div className="element__image-container">
         <img onClick={handleClick} className="element__image" src={props.card.link} alt={props.card.name}></img>
       </div>
-      <button className="element__trash" type="button"></button>
+      <button className="element__trash" type="button" />
       <div className="element__text-box">
         <h4 className="element__name">{props.card.name}</h4>
         <div className="element__like-box">
-          <button onClick={likeClick} className={`element__like ${liked && 'element__like_active'}`} type="button"></button>
+          <button onClick={likeClick} className={`element__like ${liked && 'element__like_active'}`} type="button" />
           <p className='element__likes'>{props.likeCounter}</p>
         </div>
       </div>

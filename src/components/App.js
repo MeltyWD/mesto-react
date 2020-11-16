@@ -28,13 +28,16 @@ function App() {
     setSelectedCard(card);
   }
 
-  function closeImagePopup() {
+  function closeAllPopups() {
+    setEditProfilePopupOpenClose(false);
+    setAddCardPopupOpenClose(false);
+    setEditAvatarPopupOpenClose(false);
     setSelectedCard('');
   }
 
 
   return (
-    <div className="root">
+    <>
       <Header headerImage={headerImage} />
       <Main
         profileImage={profileImage}
@@ -50,7 +53,7 @@ function App() {
         title="Редактировать профиль"
         submitText="Сохранить"
         isOpen={isEditProfilePopupOpen}
-        onClose={clickEditProfilePopupOpenClose}
+        onClose={closeAllPopups}
       >
         <label className="form__field">
           <input
@@ -80,7 +83,7 @@ function App() {
         title="Новое место"
         submitText="Создать"
         isOpen={isAddCardPopupOpen}
-        onClose={clickAddCardPopupOpenClose}
+        onClose={closeAllPopups}
       >
         <label className="form__field">
           <input
@@ -116,7 +119,7 @@ function App() {
         title="Обновить аватар"
         submitText="Сохранить"
         isOpen={isEditAvatarPopupOpen}
-        onClose={clickEditAvatarPopupOpenClose}
+        onClose={closeAllPopups}
       >
         <label className="form__field">
           <input
@@ -136,9 +139,9 @@ function App() {
 
       <ImagePopup
         card={selectedCard}
-        onClose={closeImagePopup}
+        onClose={closeAllPopups}
       />
-    </div>
+    </>
   );
 }
 

@@ -36,10 +36,10 @@ function Main(props) {
           </div>
           <div className="profile__info">
             <h1 className="profile__name">{userName}</h1>
-            <button onClick={props.onEditProfile} className="profile__edit-button" type="button"></button>
+            <button onClick={props.onEditProfile} className="profile__edit-button" type="button" />
             <p className="profile__description">{userDescription}</p>
           </div>
-          <button onClick={props.onAddCard} className="profile__add" type="button"></button>
+          <button onClick={props.onAddCard} className="profile__add" type="button" />
         </section>
 
         <section className="elements">
@@ -59,7 +59,7 @@ function Main(props) {
       <div className="popup popup_image">
         <div className="popup__overlay popup__overlay_image"></div>
         <div className="popup__container popup__container_image">
-          <button className="popup__close popup__close_image" type="button"></button>
+          <button className="popup__close popup__close_image" type="button" />
           <img className="popup__image" src="#" alt="none" />
           <p className="popup__image-text"></p>
         </div>
@@ -68,7 +68,7 @@ function Main(props) {
       <div className="popup popup_delete">
         <div className="popup__overlay popup__overlay_delete"></div>
         <div className="popup__container">
-          <button className="popup__close popup__close_delete" type="button"></button>
+          <button className="popup__close popup__close_delete" type="button" />
           <form className="form form_type_delete" name="imageDelete" noValidate>
             <h4 className="form__title form__title_delete">Вы уверены?</h4>
             <button type="submit" className="form__submit">Да</button>
