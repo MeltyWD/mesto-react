@@ -12,3 +12,6 @@
 @import url(../block/popup/popup.css);
 @import url(../block/form/form.css);
 @import url(../block/popup/_opened/popup_opened.css);
+@import url(../block/loading/loading.css);
+@import url(../block/hide/hide.css)
+

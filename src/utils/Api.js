@@ -34,10 +34,7 @@ class Api {
         authorization: this._headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        name: data.name,
-        about: data.description
-      })
+      body: JSON.stringify(data)
     }).then((res) => this._apiResultReturn(res))
   }
 
@@ -62,6 +59,14 @@ class Api {
         authorization: this._headers
       }
     }).then((res) => this._apiResultReturn(res))
+  }
+
+  changeLikeCardStatus(card, isLikes) {
+    if (isLikes) {
+      return this.likeCard(card)
+    } else {
+      return this.deleteCardLike(card)
+    }
   }
 
   likeCard(data) {
@@ -89,9 +94,7 @@ class Api {
         authorization: this._headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        avatar: data.avatar
-      })
+      body: JSON.stringify(data)
     }).then((res) => this._apiResultReturn(res))
   }
 }
