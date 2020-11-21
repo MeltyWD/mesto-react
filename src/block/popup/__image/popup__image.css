@@ -1,8 +1,0 @@
-.popup__image {
-  display: flex;
-  margin: auto;
-  max-width: 75vw;
-  max-height: 75vh;
-  object-fit: contain;
-  box-sizing: border-box;
-}
