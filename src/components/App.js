@@ -14,11 +14,12 @@ import headerImage from '../images/header/logo.svg'
 import profileImage from '../images/profile/image.jpg'
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpenClose] = React.useState(false);
-  const [isAddCardPopupOpen, setAddCardPopupOpenClose] = React.useState(false);
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpenClose] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState('');
-  const [currentUser, setCurrentUser] = React.useState([]);
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
+  const [isAddCardPopupOpen, setAddCardPopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
+  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
+  const [currentUser, setCurrentUser] = React.useState({});
   const [userInfoGet, setUserInfoGet] = React.useState(false);
   const [cards, setCards] = React.useState([]);
 
@@ -30,34 +31,31 @@ function App() {
     .then(([userInfo, cardList]) => {
       setCurrentUser(userInfo)
       setCards(cardList)
+      setUserInfoGet(true)
     })
     .catch((err) => console.log(err))
   }, [])
 
-  React.useEffect(() => {
-    if(currentUser.length !== 0) {
-      setUserInfoGet(true)
-    }
-  }, [currentUser])
-
   function clickEditProfilePopupOpenClose() {
-    setEditProfilePopupOpenClose(!isEditProfilePopupOpen);
+    setEditProfilePopupOpen(!isEditProfilePopupOpen);
   };
   function clickAddCardPopupOpenClose() {
-    setAddCardPopupOpenClose(!isAddCardPopupOpen);
+    setAddCardPopupOpen(!isAddCardPopupOpen);
   };
   function clickEditAvatarPopupOpenClose() {
-    setEditAvatarPopupOpenClose(!isEditAvatarPopupOpen);
+    setEditAvatarPopupOpen(!isEditAvatarPopupOpen);
   };
   function clickImagePopupOpen(card) {
     setSelectedCard(card);
+    setIsImagePopupOpen(!isImagePopupOpen)
   }
 
   function closeAllPopups() {
-    setEditProfilePopupOpenClose(false);
-    setAddCardPopupOpenClose(false);
-    setEditAvatarPopupOpenClose(false);
-    setSelectedCard('');
+    setEditProfilePopupOpen(false);
+    setAddCardPopupOpen(false);
+    setEditAvatarPopupOpen(false);
+    setIsImagePopupOpen(false)
+    setSelectedCard({});
   }
 
   function handleUpdateUser(data) {
@@ -112,8 +110,8 @@ function App() {
 
   return (
     <>
-      <Header headerImage={headerImage} />
       <CurrentUserContext.Provider value={currentUser}>
+        <Header headerImage={headerImage} />
         <Main
           loader={userInfoGet}
           profileImage={profileImage}
@@ -137,21 +135,22 @@ function App() {
           onClose={closeAllPopups}
           onAddPlace={handleAddPlaceSubmit}
         />
+
+        <Footer />
+
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        ></EditAvatarPopup>
+
+        <ImagePopup
+          card={selectedCard}
+          isOpen={isImagePopupOpen}
+          onClose={closeAllPopups}
+        />
+
       </CurrentUserContext.Provider>
-      <Footer />
-
-      <EditAvatarPopup
-        isOpen={isEditAvatarPopupOpen}
-        onClose={closeAllPopups}
-        onUpdateAvatar={handleUpdateAvatar}
-      ></EditAvatarPopup>
-
-
-
-      <ImagePopup
-        card={selectedCard}
-        onClose={closeAllPopups}
-      />
     </>
   );
 }

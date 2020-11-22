@@ -29,7 +29,6 @@ function Main(props) {
           <ul className="elements_list">
             {props.cards.map(card =>
               <Card
-              currentUser={currentUser}
               key={card._id}
               card={card}
               onCardClick={props.onCardClick}
@@ -41,15 +40,6 @@ function Main(props) {
           </ul>
         </section>
       </main>
-
-      <div className="popup popup_image">
-        <div className="popup__overlay popup__overlay_image"></div>
-        <div className="popup__container popup__container_image">
-          <button className="popup__close popup__close_image" type="button" />
-          <img className="popup__image" src="#" alt="none" />
-          <p className="popup__image-text"></p>
-        </div>
-      </div>
 
       <div className="popup popup_delete">
         <div className="popup__overlay popup__overlay_delete"></div>
