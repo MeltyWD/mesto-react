@@ -1,8 +1,8 @@
-# Проект 4-10: Место
+# Проект 4-11: Место
 
 ## Типовой однастраничный сайт с адаптивным дизайном. Сайт создан в рамках учебы в [Яндекс.Практикум](https://praktikum.yandex.ru/) на курсе ["Веб-разработчик"](https://praktikum.yandex.ru/web/) 
 
-[Проектная работа на GitHub Pages](https://meltywd.github.io/mesto/index.html) 
+[Проектная работа на GitHub Pages](https://meltywd.github.io/mesto-react/) 
 
 ### Технологии в проектной работе: 
 * Flex
